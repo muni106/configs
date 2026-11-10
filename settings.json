@@ -1,0 +1,231 @@
+{
+  // Editor Settings
+  "editor.scrollBeyondLastLine": false,
+  "editor.cursorSurroundingLines": 8,
+
+  // Core Vim Features - ALL MOTIONS ENABLED
+  "vim.easymotion": true,
+  "vim.incsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": true,
+  "vim.hlsearch": true,
+  "vim.leader": " ",
+  "vim.sneak": true,
+
+  "yaml.schemas": {
+      "https://raw.githubusercontent.com/compose-spec/compose-go/master/schema/compose-spec.json": "docker-compose.yml"
+  },
+  "yaml.validate": false,
+  // macOS-specific Key Handling
+  "vim.handleKeys": {
+    // Keep Vim Ctrl motions (these use Ctrl, not Cmd)
+    "<C-d>": false,
+    "<C-u>": true,       // Scroll up  
+    "<C-b>": true,       // Page up
+    "<C-f>": true,       // Page down (Vim motion)
+    "<C-e>": true,       // Scroll line down
+    "<C-y>": true,       // Scroll line up
+    "<C-o>": true,       // Jump back
+    "<C-i>": true,       // Jump forward
+    "<C-w>": true,       // Window commands
+    "<C-r>": true,       // Redo
+    
+    // Preserve macOS clipboard shortcuts (Cmd not Ctrl)
+    // Note: Cmd shortcuts don't need to be in handleKeys
+    // They're automatically handled by VS Code
+  },
+
+  // Insert Mode - Quick escape
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "j"],
+      "after": ["<Esc>"]
+    }
+  ],
+
+  // Normal Mode - Vim motions + VS Code integration
+  "vim.normalModeKeyBindingsNonRecursive": [
+    // Leader-based shortcuts
+    {
+      "before": ["<leader>", "w"],
+      "commands": ["workbench.action.files.save"]
+    },
+    {
+      "before": ["<leader>", "q"],
+      "commands": ["workbench.action.closeActiveEditor"]
+    },
+    {
+      "before": ["<leader>", "e"],
+      "commands": ["workbench.view.explorer"]
+    },
+    {
+      "before": ["<leader>", "f"],
+      "commands": ["workbench.action.quickOpen"]
+    },
+    {
+      "before": ["<leader>", "p"],
+      "commands": ["workbench.action.showCommands"]
+    },
+    {
+      "before": ["<leader>", "b"],
+      "commands": ["workbench.action.toggleSidebarVisibility"]
+    },
+    
+    // Navigation - VS Code features
+    {
+      "before": ["g", "d"],
+      "commands": ["editor.action.revealDefinition"]
+    },
+    {
+      "before": ["g", "h"],
+      "commands": ["editor.action.showHover"]
+    },
+    {
+      "before": ["g", "i"],
+      "commands": ["editor.action.goToImplementation"]
+    },
+    {
+      "before": ["g", "r"],
+      "commands": ["editor.action.goToReferences"]
+    },
+    {
+      "before": ["]", "d"],
+      "commands": ["editor.action.marker.next"]
+    },
+    {
+      "before": ["[", "d"],
+      "commands": ["editor.action.marker.prev"]
+    },
+    
+    // Refactoring
+    {
+      "before": ["<leader>", "r", "n"],
+      "commands": ["editor.action.rename"]
+    },
+    {
+      "before": ["<leader>", "c", "a"],
+      "commands": ["editor.action.quickFix"]
+    },
+    
+    // Comments
+    {
+      "before": ["g", "c", "c"],
+      "commands": ["editor.action.commentLine"]
+    },
+    
+    // Clear search highlight
+    {
+      "before": ["<leader>", "n"],
+      "commands": [":nohl"]
+    }
+  ],
+
+  // Visual Mode
+  "vim.visualModeKeyBindings": [
+    {
+      "before": ["g", "c"],
+      "commands": ["editor.action.commentLine"]
+    },
+    {
+      "before": [">"],
+      "commands": ["editor.action.indentLines"]
+    },
+    {
+      "before": ["<"],
+      "commands": ["editor.action.outdentLines"]
+    }
+  ],
+
+  // Performance
+  "extensions.experimental.affinity": {
+    "vscodevim.vim": 1
+  },
+    "workbench.iconTheme": "material-icon-theme",
+    "editor.fontFamily": "JetBrainsMono Nerd Font",
+    "editor.fontLigatures": true,
+    "editor.fontWeight": "500",
+    "editor.letterSpacing": 0.6,
+    "editor.lineHeight": 26,
+    "editor.fontSize": 16,
+    "editor.cursorBlinking": "smooth",
+    "editor.cursorSmoothCaretAnimation": "on",
+    "editor.smoothScrolling": true,
+    "editor.minimap.enabled": false,
+    "editor.renderLineHighlight": "gutter",
+    "editor.guides.indentation": false,
+    "editor.padding.top": 16,
+    "editor.bracketPairColorization.enabled": true,
+    "workbench.list.smoothScrolling": true,
+    "workbench.editor.showTabs": "multiple",
+    "workbench.activityBar.location": "default",
+    "breadcrumbs.enabled": false,
+    "terminal.integrated.smoothScrolling": true,
+    "terminal.integrated.fontSize": 14,
+    "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font",
+    "[python]": {
+        "editor.formatOnType": true
+    },
+    "redhat.telemetry.enabled": true,
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true
+    },
+    "editor.lineNumbers": "relative",
+    "tabnine.experimentalAutoImports": true,
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "git.openRepositoryInParentFolders": "never",
+    "cmake.configureOnOpen": true,
+    "cmake.showOptionsMovedNotification": false,
+    "[php]": {
+        "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+    },
+    "[css]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "editor.suggest.showWords": false,
+    "files.autoSave": "afterDelay",
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "go.toolsManagement.autoUpdate": true,
+    "workbench.startupEditor": "none",
+    "github.copilot.nextEditSuggestions.enabled": false,
+    "github.copilot.enable": {
+        "*": false,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false
+    },
+    "docker.extension.enableComposeLanguageServer": false,
+    "[dockercompose]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "editor.autoIndent": "advanced",
+        "editor.quickSuggestions": {
+            "other": true,
+            "comments": false,
+            "strings": true
+        },
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+    "[github-actions-workflow]": {
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+    "extensions.ignoreRecommendations": true,
+    "http.systemCertificatesNode": true,
+    "geminicodeassist.project": "argon-lexicon-69j53",
+    "diffEditor.codeLens": true,
+    "claudeCode.preferredLocation": "panel",
+    "notebook.lineNumbers": "on",
+    "svelte.enable-ts-plugin": true,
+    "window.autoDetectColorScheme": false,
+    "chat.viewSessions.orientation": "stacked",
+    "workbench.secondarySideBar.defaultVisibility": "hidden",
+    "workbench.colorTheme": "Dark Modern",
+}
